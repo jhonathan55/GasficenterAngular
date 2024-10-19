@@ -1,0 +1,97 @@
+:host{
+    display: block;
+    width: 100%;
+
+    .frame {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 40px;
+
+        h1 {
+            font-weight: bolder;
+            text-align: center;
+            padding-top: 70px;
+            padding-bottom: 20px;
+            transition: all 1s ease;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce-header {
+            0% {
+              opacity: 0;
+              transform: translateX(-2000px);
+            }
+            60% {
+              opacity: 1;
+              transform: translateX(-30px);
+            }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+    
+        h1.in-view{
+            animation: bounce-header 2s ease;
+        }
+
+        .slides {
+            width: 100%;
+            aspect-ratio: 7/1;
+            // gap: 30px;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+            img {
+                width: 30%;
+                height: auto;
+                object-fit: cover;
+                @media (max-width:600px){
+                    width: 90%;
+                }
+            }
+
+            // Se muestra solo una imagen
+            // #other-img {
+            //     @media (max-width:600px){
+            //         display: none;
+            //     }
+            // }
+            @media (max-width: 600px) {
+                gap: 20px;
+            }
+        }
+
+        // #indicators{
+        //     margin-top: 20px;
+        //     margin-bottom: 30px;
+        //     width: 100px;
+        //     display: flex;
+        //     justify-content: center;
+        //     .indicator {
+        //         width: 15px;
+        //         height: 15px;
+        //         border-radius: 50%;
+        //         background-color: lightgrey;
+        //         display: inline-block;
+        //         margin: 0px 5px;
+        //         cursor: pointer;
+        //         transition: background-color 0.3s ease-in-out;
+
+        //         &.active{
+        //             background-color: #108444;
+        //         }
+        //     }
+
+        //     .indicator:hover {
+        //         background-color: grey;
+
+        //         &.active{
+        //             background-color: #108444;
+        //         }
+        //     }
+        // }
+    }
+}

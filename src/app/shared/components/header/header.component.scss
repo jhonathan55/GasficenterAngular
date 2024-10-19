@@ -1,0 +1,185 @@
+@use "@angular/material" as mat;
+@import '../../../../assets/styles/media-queries.scss';
+
+// .example-spacer {
+//     flex: 1 1 auto;
+//   }
+
+// .container {
+//     flex: 1;
+//     position: fixed;
+//     width: 100%;
+//     height: 153px;
+//     z-index: 1000;
+
+//     mat-divider{
+//       background-color: lightgray;
+//       margin: 0;
+//     }
+//  }
+
+//  .container-middle {
+//     max-width: 1000px;
+//     flex: 3;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 1rem;
+//  }
+
+//  .container-menu {
+//     flex: 1;
+//     display: flex;
+//     background-color: #108444;
+//     align-items: center;
+//     max-width: 120px;
+//     max-height: 40px;
+//     border: 1px solid darkgreen;
+//     border-radius: 5px;
+//     justify-content: space-between;
+//     padding-right: 10px;
+//  }
+
+//  ::ng-deep .mat-expansion-panel {
+//    background-color: #108444 !important;
+//    width: 150px !important;
+//    // height: 40px !important;
+//    padding: 0 !important;
+//    @include mat.all-component-densities(-3);
+//  }
+
+//  ::ng-deep .mat-expansion-panel-header {
+//    padding: 0 !important;
+//    flex: 1 !important;  
+//    display: flex !important;
+//    justify-content: center !important;
+//  }
+
+//  ::ng-deep .mat-expansion-panel-header-title{
+//    flex-grow: 0 !important;
+//    margin-right: 6px !important;
+//    margin-left: 3px !important;
+//  }
+
+//  .container-icons {
+//    flex: 1;
+//    display: flex;
+//    justify-content: space-between;
+//    max-width: 300px;
+//    // background-color: grey;
+//    // color: green($color: #108444);
+
+//  }
+
+//  .toolbar {
+//     flex: 1;
+//     display: flex;
+//     width: 100vw;
+//     justify-content: center;
+//     height: 20vh;
+//     background-color: white;
+//     align-items: center;
+
+//  }
+
+// //  .logo{
+// //     margin-left: 10px;
+// //     width: 150px;
+// //  }
+
+//  img {
+//   width: 14%;
+//   position: absolute;
+//  }
+
+//  .divider {
+//     width: 100%;
+//     // opacity: 50%;
+//  }
+
+//  .mat-tab-group {
+//     margin-bottom: 48px;
+//   }
+
+//   .search-bar {
+//     max-width: 700px;
+//     max-height: 40px;
+//     // background-color: aqua;
+//     flex: 1;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   // ::ng-deep mat-divider {
+//   //   // background-color: lightgray !important;
+//   //   background-color: red !important;
+//   // }
+
+//  @include tabletScreen {
+//    img{
+//       margin-left: 0px;
+//       margin-right: 10px;
+//       width: 50px;
+//    }
+//    ::ng-deep .mat-expansion-panel {
+//       width: 70px !important;
+//    }
+   
+//    ::ng-deep mat-panel-description {
+//       display: none !important;
+//    }
+
+//    ::ng-deep .mat-expansion-panel-header-title{
+//       margin: auto !important;
+//     }
+
+//     .container-icons {
+//       display: none;
+//     }
+//  }
+
+//  @include mobileScreen {
+//    ::ng-deep .mat-expansion-panel{
+//       width: 40px !important;
+//    }
+
+//    .search-bar {
+//       width: 100px;
+//    }
+//  }
+
+.container {
+   display: flex;
+   width: 100%;
+   height: auto;
+   mat-toolbar{
+      // PROPUESTA COLOR
+      background-color: #0d1016;
+      mat-tab-group{
+         margin-top: auto;
+
+         // PROPUESTA COLORES
+
+         ::ng-deep .mat-mdc-tab-header-pagination-chevron{
+            border-color: #ff914d;
+         }
+
+         ::ng-deep .mat-mdc-tab .mdc-tab__text-label{
+            color: #66ccff;
+         }
+
+         ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+            color: #ff914d;
+         }
+
+         ::ng-deep .mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label{
+            color: #ff914d;
+         }
+      }
+   }
+   
+   //  mat-divider{
+   //    background-color: lightgray;
+   //    margin: 0;
+   //  }
+ }

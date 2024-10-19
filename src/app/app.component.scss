@@ -1,0 +1,33 @@
+.main{
+    position: relative;
+    .img-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        align-items: center;
+
+        // PROPUESTA COLOR
+        background-color: #0d1016;
+
+        // FONDO NORMAL
+        // background-color: white;
+        img{
+            width: 200px;
+            @media (max-width: 1024px) {
+               width: 170px;
+            }
+            @media (max-width: 768px) {
+               width: 150px;
+            }
+            @media (max-width: 576px) {
+               width: 120px;
+            }
+        }
+    }
+    .header{
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+}

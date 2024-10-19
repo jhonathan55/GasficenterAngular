@@ -1,0 +1,93 @@
+
+<div class="container">
+    <!-- <img src="assets/images/GASFI-logo.png" alt="Descripción de la imagen"> -->
+    <!-- <mat-toolbar class="toolbar"> -->
+        <!-- <div class="container-middle"> -->
+
+            <!-- Implementar button o MatDialog como alternativa -->
+
+            <!-- <div class="container-menu">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon [style.color]="'#ffffff'">menu</mat-icon>
+                </button>
+                <span [style.color]="'#ffffff'">Catalog</span>
+            </div> -->
+<!--
+            <button mat-raised-button color="primary" (click)="openDialog()">
+                <mat-icon> menu </mat-icon>
+                Catálogo
+            </button>-->
+            <!-- <mat-expansion-panel class="dense-1" style="width: 150px; background-color: #108444;" hideToggle displayMode="default"> -->
+            <!-- <mat-expansion-panel hideToggle displayMode="default">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <mat-icon [style.color]="'#ffffff'">menu</mat-icon> -->
+
+                    <!-- <span [style.color]="'#ffffff'">Catalog</span> -->
+
+                  <!-- </mat-panel-title>
+                  <mat-panel-description>
+                    <span style="color: white;">Catalog</span>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </div> -->
+
+                <!-- <mat-form-field>
+                  <mat-label>Country</mat-label>
+                  <input matInput>
+                </mat-form-field> -->
+
+              <!-- </mat-expansion-panel> -->
+
+                <!-- SEARCH BAR 
+            <div class="search-bar">
+                <mat-form-field appearance="outline" class="dense-3" style="margin-top: 22px; width: 100%;">
+                     <mat-label>Input</mat-label> 
+                    <input matInput placeholder="Buscar servicios">
+                    <mat-icon matSuffix color="primary">search</mat-icon>
+                </mat-form-field>
+            </div>   -->  
+        <!-- </div> -->
+         <!--
+        <div class="container-icons">
+            <button mat-icon-button>
+                <mat-icon>person_outline</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>bar_chart</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>favorite_border</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon matBadge="3" matBadgeColor="warn" >shopping_cart</mat-icon>
+            </button>
+        </div>
+         -->
+    <!-- </mat-toolbar> -->
+     <!--<mat-divider></mat-divider>-->
+    <mat-toolbar style="justify-content: center;">
+
+        <!-- IMPLEMENTAR TAB LINKS-->
+        <mat-tab-group 
+        color="primary" 
+        disableRipple="true"
+        animationDuration="0ms" 
+        mat-stretch-tabs="false" 
+        mat-align-tabs="center"
+        (selectedTabChange)="onTabChange($event)">
+          <mat-tab label="MENU" aria-label="home"></mat-tab>
+          <mat-tab label="QUIENES SOMOS" aria-label="equipment"></mat-tab>
+          <mat-tab label="SERVICIOS" aria-label="services"></mat-tab>
+          <mat-tab label="OFERTAS" aria-label="offers"></mat-tab>
+          <mat-tab label="CONTACTO" aria-label="contact"></mat-tab>
+      </mat-tab-group>
+    </mat-toolbar>
+     
+</div>  

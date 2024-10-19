@@ -1,0 +1,48 @@
+<h1 mat-dialog-title> Catálogo</h1>
+<div mat-dialog-content class="content">
+    <mat-list>
+
+        <!-- IMPLEMENTAR SHOWLIST -->
+
+        <mat-list-item (mouseover)="showList=true;" (mouseout)="showList=false;">
+            Item 1     
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item (mouseover)="showList=true;" (mouseout)="showList=false;">
+            Item 2     
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item (mouseover)="showList=true;" (mouseout)="showList=false;">
+            Item 3     
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item (mouseover)="showList=true;" (mouseout)="showList=false;">
+            Item 4     
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item (mouseover)="showList=true;" (mouseout)="showList=false;">
+            Item 5     
+        </mat-list-item>
+      </mat-list>
+      <div class="container">
+        <span>Content</span>
+      </div>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</div>
+
+<!-- <nav class="catalog">
+    <ul>
+      <li *ngFor="let item of catalogItems">
+        <a href="#" (mouseover)="openDropdown(item)" (mouseleave)="openDropdown(item)">
+          {{ item.name }}
+        </a>
+        <ul  class="dropdown">
+          <li *ngFor="let subItem of item.subItems">
+            <a href="#">{{ subItem }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav> -->

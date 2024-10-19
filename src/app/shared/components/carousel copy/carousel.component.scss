@@ -1,0 +1,51 @@
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-inner {
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item {
+  display: inline-block;
+  width: 100%;
+}
+.carousel-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  bottom: 1rem;
+}
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+
+  span {
+    height: 1rem;
+    width: 1rem;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+    &.active {
+      background-color: #004aad;
+    }
+  }
+}
+.mat-fab {
+  // Mejora visual para los botones
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: darken(#004aad, 5%);
+  }
+}
+img {
+  width: 100%;
+  display: block;
+}

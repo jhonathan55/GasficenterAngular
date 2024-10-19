@@ -1,0 +1,64 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    mat-list{
+        width: 20%;
+
+        mat-divider{
+            width: 80%;
+        }
+    }
+
+    .container{
+        width: 60%;
+    }
+}
+
+// .catalog {
+//     display: flex;
+//   }
+  
+//   .catalog ul {
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//   }
+  
+//   .catalog li {
+//     display: inline-block;
+//     margin-right: 20px;
+//   }
+  
+//   .catalog a {
+//     text-decoration: none;
+//     color: black;
+//   }
+  
+//   .catalog a:hover {
+//     color: #ccc;
+//   }
+  
+//   .dropdown {
+//     position: absolute;
+//     top: 10%;
+//     left: 0;
+//     background-color: white;
+//     border: 1px solid #ccc;
+//     padding: 10px;
+//     display: none;
+//   }
+  
+//   .dropdown li {
+//     margin-bottom: 5px;
+//   }
+  
+//   .dropdown a:hover {
+//     background-color: #f2f2f2;
+//   }
+  
+//   .catalog li:hover .dropdown {
+//     display: block;
+//   }
+  

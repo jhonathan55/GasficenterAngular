@@ -1,0 +1,75 @@
+// /* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+.dense-1 {
+  @include mat.all-component-densities(-1);
+}
+
+.dense-2 {
+  @include mat.all-component-densities(-2);
+}
+
+.dense-3 {
+  @include mat.all-component-densities(-3);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$custom-primary-palette: (
+  50 : #fff2ea,
+    100 : #ffdeca,
+    200 : #ffc8a6,
+    300 : #ffb282,
+    400 : #ffa268,
+    500 : #ff914d,
+    600 : #ff8946,
+    700 : #1c98d8,
+    800 : #178fd3,
+    900 : #0d7ecb,
+    A100 : #f7fcff,
+    A200 : #c4e5ff,
+    A400 : #91cfff,
+    A700 : #78c4ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-primary: mat.define-palette($custom-primary-palette);
+$custom-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn
+    )
+  )
+);
+.w-100 {
+  width: 100%;
+}
+@include mat.all-component-themes($custom-theme);

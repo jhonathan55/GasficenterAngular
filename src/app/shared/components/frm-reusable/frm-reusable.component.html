@@ -1,0 +1,199 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-columns">
+        <div *ngFor="let field of config" class="form-column">
+          <ng-container [ngSwitch]="field.type">
+            <!-- Campo de texto -->
+            <ng-container *ngSwitchCase="'text'">
+
+              @if (field.name === 'message') {
+                <mat-form-field hintLabel="Max 400 caracteres" appearance="outline" class="w-100">
+                  <mat-label>{{ field.label }}</mat-label>
+                  <!-- <input
+                    matInput
+                    [formControlName]="field.name"
+                    [placeholder]="field.placeholder"
+                  /> -->
+                  <textarea
+                    #input
+                    matInput
+                    [formControlName]="field.name"
+                    [placeholder]="field.placeholder" 
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="4"
+                    maxlength="400">
+                  </textarea>
+                  @if(field.icon) {
+                  <mat-icon matSuffix>{{ field.icon }}</mat-icon>
+                  }
+                  <mat-hint align="end">{{input.value?.length}}/400</mat-hint>
+                  <mat-error
+                    *ngIf="
+                      form.get(field.name).touched && form.get(field.name).invalid
+                    "
+                  >
+                    {{ field.error }}
+                  </mat-error>
+                </mat-form-field>
+              }
+              @else {
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>{{ field.label }}</mat-label>
+                  <input
+                    matInput
+                    [formControlName]="field.name"
+                    [placeholder]="field.placeholder"
+                  />
+                  @if(field.icon) {
+                  <mat-icon matSuffix>{{ field.icon }}</mat-icon>
+                  }
+                  <mat-error
+                    *ngIf="
+                      form.get(field.name).touched && form.get(field.name).invalid
+                    "
+                  >
+                    {{ field.error }}
+                  </mat-error>
+                </mat-form-field>
+              }
+            </ng-container>
+
+            <!-- Select -->
+            <ng-container *ngSwitchCase="'select'">
+              <mat-form-field class="w-100">
+                <mat-label>{{ field.label }}</mat-label>
+                <mat-select [formControlName]="field.name">
+                  <mat-option
+                    *ngFor="let option of field.options"
+                    [value]="option.value"
+                  >
+                    {{ option.label }}
+                  </mat-option>
+                </mat-select>
+                <mat-error
+                  *ngIf="
+                    form.get(field.name).touched && form.get(field.name).invalid
+                  "
+                >
+                  {{ field.error }}
+                </mat-error>
+              </mat-form-field>
+            </ng-container>
+
+            <!-- Checkbox -->
+            <ng-container *ngSwitchCase="'checkbox'">
+              <mat-checkbox color="primary" [formControlName]="field.name">{{
+                field.label
+              }}</mat-checkbox>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'number'">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>&nbsp;{{ field.label }}</mat-label>
+                <input
+                  matInput
+                  [formControlName]="field.name"
+                  [placeholder]="field.placeholder"
+                  type="number"
+                />
+                @if (field.prefix) {
+                  <span matPrefix>{{ field.prefix }}</span>
+                }
+
+                @if(field.icon) {
+                <mat-icon matSuffix>{{ field.icon }}</mat-icon>
+                }
+                <mat-error
+                  *ngIf="
+                    form.get(field.name).touched && form.get(field.name).invalid
+                  "
+                >
+                  {{ field.error }}
+                </mat-error>
+              </mat-form-field>
+            </ng-container>
+            <ng-container *ngSwitchCase="'textarea'">
+              <mat-form-field class="w-100">
+                <mat-label>{{ field.label }}</mat-label>
+                <textarea
+                  matInput
+                  [formControlName]="field.name"
+                  [placeholder]="field.placeholder"
+                ></textarea>
+                @if(field.icon) {
+                <mat-icon matSuffix>{{ field.icon }}</mat-icon>
+                }
+                <mat-error
+                  *ngIf="
+                    form.get(field.name).touched && form.get(field.name).invalid
+                  "
+                >
+                  {{ field.error }}
+                </mat-error>
+              </mat-form-field>
+            </ng-container>
+            <!-- Añadir más tipos de campos según sea necesario -->
+            <ng-container *ngSwitchCase="'date'">
+              <mat-form-field class="w-100">
+                <mat-label>{{ field.label }}</mat-label>
+                <input
+                  matInput
+                  [formControlName]="field.name"
+                  [matDatepicker]="picker"
+                  [max]="today"
+                  (change)="onDateChange($event, field.name)"
+                />
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker [max]="today"></mat-datepicker>
+                <mat-error
+                  *ngIf="
+                    form.get(field.name).touched && form.get(field.name).invalid
+                  "
+                >
+                  {{ field.error }}
+                </mat-error>
+              </mat-form-field>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="buttons">
+        <ng-container *ngFor="let button of buttons">
+          <button
+            mat-raised-button
+            [color]="button.color"
+            [type]="button.type"
+            [disabled]="form.invalid"
+            class=""
+          >
+            @if (button.icon) {
+            <mat-icon [className]="button.icon">{{ button.icon }}</mat-icon>
+            }
+            &nbsp;
+            {{ button.text }}
+          </button>
+        </ng-container>
+      </div>
+    </form>
+    @if (footer) {
+      <mat-divider></mat-divider>
+      <mat-card-footer>
+        <!-- <mat-card-subtitle>{{ footerText }}</mat-card-subtitle> -->
+        <button mat-button (click)="redirectToGoogleCalendar()">
+          <mat-icon svgIcon="google-calendar"></mat-icon>
+          Agendar cita
+        </button>
+      </mat-card-footer>
+    }
+  </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,155 @@
+@import '../../../../assets/styles/media-queries.scss';
+:host{
+    display: block;
+    width: 100%;
+
+    .container {
+        width: 100%;
+        max-height: fit-content;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container-cards {
+        height: 100%;
+        width: auto;
+        margin-left: 70px;
+        margin-right: 70px;
+        border-left: dashed 3px #d18324;
+        border-right: dashed 3px #d18324;
+
+        h1 {
+            font-weight: bolder;
+            text-align: center;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            transition: all 1s ease;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce-header {
+            0% {
+              opacity: 0;
+              transform: translateX(-2000px);
+            }
+            60% {
+              opacity: 1;
+              transform: translateX(-30px);
+            }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+    
+        h1.in-view{
+            animation: bounce-header 2s ease;
+        }
+
+        h3 {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 0.5rem;
+            transition: all 1s ease;
+
+            a {
+                text-transform: capitalize;
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+        h3.in-view{
+            font-size: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 2%;
+
+            mat-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-bottom: 20px;
+                width: 20%;
+                // height: 300px;
+                aspect-ratio: 1/1;
+                box-shadow: 0 13px 27px -5px #32325d40, 0 8px 16px -8px #0000004d, 0 -6px 16px -6px #00000008;
+                border-radius: 10%;
+    
+                // .card-text {
+                //     padding-top: 10px;
+                //     color: white;
+                //     -webkit-text-stroke-width: 1px;
+                //     -webkit-text-stroke-color: lightgray;
+                //     font-size: 25px;
+                //     text-align: center;
+                //     margin-bottom: 30px;
+                // }
+            }
+
+            mat-card:hover{
+                transform: translate(-10%, -10%) scale(1.2);
+            }
+            // .animate:hover{
+            //     transform: translate(-10%, -10%) scale(1.2);
+            // }
+
+            @keyframes fade-in {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+    
+            mat-card.in-view{
+                animation: fade-in 1.2s linear;
+            }
+
+            @include tabletScreen {
+                .cards {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+    
+                mat-card {
+                    width: 70%;
+                }
+
+                mat-card:hover{
+                    transform: none;
+                }
+            }
+
+            @include mobileScreen {
+                // .cards {
+                //     display: flex;
+                //     flex-direction: column;
+                //     justify-content: space-between;
+                //     align-items: center;
+                // }
+    
+                mat-card {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    
+    
+    @include tabletScreen {
+        .container-cards {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+

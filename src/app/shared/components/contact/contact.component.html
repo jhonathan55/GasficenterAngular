@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="form-card">
+        <app-frm-reusable
+        [config]="formConfig"
+        [buttons]="buttonsConfig"
+        [title]="'Contacto'"
+        [subtitle]="'Un experto se comunicara contigo en breve.'"
+        (formSubmit)="handleFormSubmit($event)"
+        [footer]="true">
+        </app-frm-reusable>
+    </div>
+    <div class="contact-container">
+        <img src="https://developers.google.com/static/maps/images/landing/hero_maps_static_api.png" alt="map placeholder">
+    </div>
+</div>

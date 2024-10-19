@@ -1,0 +1,92 @@
+<div class="container-background">
+    <div class="container">
+        <h1 class="animate">SERVICIOS</h1>
+        <mat-tab-group animationDuration="0ms" mat-stretch-tabs="false" mat-align-tabs="center" preserveContent>
+            <mat-tab label="TODO">
+                <div class="card-grid">
+                    <div class="card principal" [ngClass]="{'mostrar': mostrar}" *ngFor="let servicio of servicios, let i = index">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>{{ servicio.titulo }}</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src=" {{servicio.imagen}}" alt="card image">
+                            <mat-card-content>
+                                {{ servicio.descripcion }}
+                            </mat-card-content>
+                            
+                            <mat-card-actions class="buttons">
+                                <button mat-flat-button color="primary" (click)="openDialog(i)">Cotizar</button>
+                                <!-- <button mat-icon-button>
+                                    <mat-icon>add_shopping_cart</mat-icon>
+                                </button> -->
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+                <h3>
+                    <a (click)="toggleMostrarMas()">{{mostrarButton}}</a>
+                </h3>
+            </mat-tab>
+            <mat-tab label="REPARACIONES / MANTENIMIENTOS">
+                <div class="card-grid">
+                    <ng-container *ngFor="let servicio of servicios, let i = index">
+                        @if (servicio.titulo === 'Reparaciones / Mantenimiento'){
+                            <div class="card reparaciones" [ngClass]="{'mostrar': mostrar}">
+                                <mat-card>
+                                    <mat-card-header>
+                                        <mat-card-title>{{ servicio.titulo }}</mat-card-title>
+                                    </mat-card-header>
+                                    <img mat-card-image src=" {{servicio.imagen}}" alt="card image">
+                                    <mat-card-content>
+                                        {{ servicio.descripcion }}
+                                    </mat-card-content>
+                                    <mat-card-actions class="buttons">
+                                        <button mat-flat-button color="primary" (click)="openDialog(i)">Cotizar</button>
+                                        <!-- <button mat-icon-button>
+                                            <mat-icon>add_shopping_cart</mat-icon>
+                                        </button> -->
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                        }
+                    </ng-container>
+                </div>
+                <h3 class="hide-btn">
+                    <a (click)="toggleMostrarMas()">{{mostrarButton}}</a>
+                </h3>
+            </mat-tab>
+            <mat-tab label="INSTALACIONES">
+                <div class="card-grid">
+                    <ng-container *ngFor="let servicio of servicios, let i = index">
+                        @if (servicio.titulo === 'Instalaciones'){
+                            <div class="card instalaciones" [ngClass]="{'mostrar': mostrar}">
+                                <mat-card>
+                                    <mat-card-header>
+                                        <mat-card-title>{{ servicio.titulo }}</mat-card-title>
+                                    </mat-card-header>
+                                    <img mat-card-image src=" {{servicio.imagen}}" alt="card image">
+                                    <mat-card-content>
+                                        {{ servicio.descripcion }}
+                                    </mat-card-content>
+                                    <mat-card-actions class="buttons">
+                                        <button mat-flat-button color="primary" (click)="openDialog(i)">Cotizar</button>
+                                        <!-- <button mat-icon-button>
+                                            <mat-icon>add_shopping_cart</mat-icon>
+                                        </button> -->
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                        }
+                    </ng-container>
+                </div>
+                <h3 class="hide-btn">
+                    <a (click)="toggleMostrarMas()">{{mostrarButton}}</a>
+                </h3>
+            </mat-tab>
+        </mat-tab-group>
+        <!-- <h3>
+            <a (click)="toggleMostrarMas()">{{mostrarButton}}</a>
+        </h3> -->
+        <!-- <button (click)="toggleMostrarMas()" mat-flat-button color="primary">Cotizar</button> -->
+    </div>
+</div>

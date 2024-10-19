@@ -1,0 +1,99 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-left: 100px !important;
+    // margin-right: 100px !important;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    width: 100% !important;
+    @media (max-width: 768px){
+        width: 100% !important;
+    }
+    @media (max-width: 576px){
+        width: 90% !important;
+    }
+    mat-card-header {
+        padding-bottom: 0.2rem;
+        display: block !important;
+        mat-card-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        mat-card-subtitle {
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+    
+    mat-card-content {
+        .form-columns {
+            display: flex;
+            flex-direction: column;
+            // max-width: 500px;
+            // grid-template-columns: 1fr; // Una columna por defecto
+            @media (min-width: 600px) {
+                // Punto de quiebre para pantallas mayores
+                // grid-template-columns: 1fr 1fr; // Dos columnas en pantallas más anchas
+            }
+
+            .form-column {
+                padding: 0.2rem;
+
+                /* Chrome, Safari, Edge, Opera */
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                input[type=number] {
+                    appearance: textfield;
+                    -moz-appearance: textfield;
+                }
+            }
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: space-evenly;
+            margin-top: 1rem;
+            width: 100%;
+
+            @media (min-width: 600px) {
+                display: grid !important; // Cambiar a grid para las pantallas más grandes
+                grid-template-columns: repeat(2, 1fr) !important; // Dos botones por fila
+                gap: 1rem !important; // Espacio entre los botones
+                justify-content: space-between; // Alinear los botones al inicio
+                align-items: center; // Alineación vertical en el centro
+            }
+        }
+    }
+    mat-divider{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    mat-card-footer{
+        display: flex;
+        justify-content: center;
+
+        button {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          }
+          
+        button:hover {
+            background-color: #0543a7;
+          }
+    }
+}   
+// Estilos adicionales aquí según sea necesario

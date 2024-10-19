@@ -1,0 +1,184 @@
+@import '../../../../assets/styles/media-queries.scss';
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+
+::ng-deep .cdk-global-overlay-wrapper{
+    justify-content: center !important;
+}
+
+.container-background {
+     // img {
+    //     opacity: 0.5;
+    //     width: 100%;
+    //     height: 700px;
+    //   }
+    width: 100%;
+    height: auto;
+    // background-image: url('https://picsum.photos/id/43/1920/1080?grayscale');
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    .container {
+        width: 100%;
+        height: 100%;
+        // background-color: rgba(255, 255, 255, 0.856);
+        background-color: rgba(194, 194, 194, 0.856);
+        padding-bottom: 1px;
+    
+        h1 {
+            font-weight: bolder;
+            text-align: center;
+            padding-top: 70px;
+            padding-bottom: 20px;
+            transition: all 1s ease;
+            font-size: 2rem;
+        }
+    
+        @keyframes bounce-header {
+            0% {
+              opacity: 0;
+              transform: translateX(2000px);
+            }
+            60% {
+              opacity: 1;
+              transform: translateX(-30px);
+            }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+    
+        h1.in-view{
+            animation: bounce-header 2s ease;
+        }
+    
+        h3 {
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 10px;
+            font-size: 1.5rem;
+
+            a {
+                text-transform: capitalize;
+                text-decoration: none;
+                color: black;
+            }
+
+            a:hover {
+                cursor: pointer;
+            }
+        }
+
+        @media(min-width: #{$breakpoint-medium + 1px}){
+            .hide-btn{
+                display: none;
+            }
+        }
+
+        .card-grid {
+            padding: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            @media (max-width: $breakpoint-medium){
+                gap: 10px;
+            }
+            .card {
+                width: 20%;
+                @media (max-width: $breakpoint-medium){
+                    width: 40%;
+                }
+    
+                @media (max-width: $breakpoint-small){
+                    width: 100%;
+                }
+    
+                mat-card {
+                    // justify-content: space-between;
+                    height: 100%;
+                    gap: 15px;
+                    // border-radius: 0 !important;
+                    // border: solid 1px black;
+                    box-shadow: 0 13px 27px -5px #32325d40, 0 8px 16px -8px #0000004d, 0 -6px 16px -6px #00000008;
+    
+                    img {
+                        width: 100%;
+                        aspect-ratio: 16/9;
+                        object-fit: cover;
+                        box-shadow: 0 13px 27px -5px #32325d40, 0 8px 16px -8px #0000004d, 0 -6px 16px -6px #00000008;
+                    }
+    
+                    mat-card-actions {
+                        margin-top: auto;
+                    }
+                }
+    
+                .buttons {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: end;
+                }  
+            }
+    
+            @keyframes fade-in {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+    
+            .card.in-view{
+                animation: fade-in 1.2s linear;
+            }
+    
+            @mixin hide-cards($count) {
+                @for $i from 1 through $count {
+                    &:nth-last-child(-n+#{$i}) {
+                        display: none;
+                    }
+                }     
+            }
+    
+            @mixin show-cards() {
+                &.mostrar {
+                    display: block;
+                }
+            }
+    
+            .card.principal {
+                @media (min-width: #{$breakpoint-medium + 1px}){
+                    @include hide-cards(3);
+                }
+                @media (max-width: $breakpoint-medium){
+                    @include hide-cards(7);
+                }
+                @media (max-width: $breakpoint-small){
+                    @include hide-cards(8);
+                }
+                @include show-cards();
+            }
+    
+            .card.reparaciones {
+                @media (max-width: $breakpoint-medium){
+                    @include hide-cards(1);
+                }
+                @media (max-width: $breakpoint-small){
+                    @include hide-cards(2);
+                }
+                @include show-cards();
+            }
+    
+            .card.instalaciones {
+                @media (max-width: $breakpoint-medium){
+                    @include hide-cards(2);
+                }
+                @media (max-width: $breakpoint-small){
+                    @include hide-cards(3);
+                }
+                @include show-cards();
+            }
+        }
+    }
+}
+
